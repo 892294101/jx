@@ -4,7 +4,7 @@
 package service
 
 import (
-	"admin-api/common/util"
+	"github.com/jx/jxserver/common/util"
 	"github.com/mojocn/base64Captcha"
 	"image/color"
 )

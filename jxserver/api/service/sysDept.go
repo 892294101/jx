@@ -4,9 +4,9 @@
 package service
 
 import (
-	"admin-api/api/dao"
-	"admin-api/api/entity"
-	"admin-api/common/result"
+	"github.com/jx/jxserver/api/dao"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/result"
 	"github.com/gin-gonic/gin"
 )
 

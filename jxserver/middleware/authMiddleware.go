@@ -4,10 +4,10 @@
 package middleware
 
 import (
-	"admin-api/common/constant"
-	"admin-api/common/result"
-	"admin-api/pkg/jwt"
 	"github.com/gin-gonic/gin"
+	"github.com/jx/jxserver/common/constant"
+	"github.com/jx/jxserver/common/result"
+	"github.com/jx/jxserver/pkg/jwt"
 	"strings"
 )
 

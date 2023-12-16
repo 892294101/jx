@@ -4,12 +4,12 @@
 package main
 
 import (
-	"admin-api/common/config"
-	_ "admin-api/docs"
-	"admin-api/pkg/db"
-	"admin-api/pkg/log"
-	"admin-api/pkg/redis"
-	"admin-api/router"
+	"github.com/jx/jxserver/common/config"
+	_ "github.com/jx/jxserver/docs"
+	"github.com/jx/jxserver/pkg/db"
+	"github.com/jx/jxserver/pkg/log"
+	"github.com/jx/jxserver/pkg/redis"
+	"github.com/jx/jxserver/router"
 	"context"
 	"github.com/gin-gonic/gin"
 	"net/http"

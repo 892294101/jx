@@ -4,7 +4,7 @@
 package db
 
 import (
-	"admin-api/common/config"
+	"github.com/jx/jxserver/common/config"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

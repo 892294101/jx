@@ -4,11 +4,11 @@
 package service
 
 import (
-	"admin-api/api/dao"
-	"admin-api/api/entity"
-	"admin-api/common/result"
-	"admin-api/common/util"
-	"admin-api/pkg/jwt"
+	"github.com/jx/jxserver/api/dao"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/result"
+	"github.com/jx/jxserver/common/util"
+	"github.com/jx/jxserver/pkg/jwt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
@@ -165,7 +165,7 @@ func (s SysAdminServiceImpl) Login(c *gin.Context, dto entity.LoginDto) {
 	// 左侧菜单列表
 	var leftMenuVo []entity.LeftMenuVo
 	leftMenuList := dao.QueryLeftMenuList(sysAdmin.ID)
-	for _, value := range leftMenuList{
+	for _, value := range leftMenuList {
 		menuSvoList := dao.QueryMenuVoList(sysAdmin.ID, value.Id)
 		item := entity.LeftMenuVo{}
 		item.MenuSvoList = menuSvoList
@@ -178,7 +178,7 @@ func (s SysAdminServiceImpl) Login(c *gin.Context, dto entity.LoginDto) {
 	// 权限列表
 	permissionList := dao.QueryPermissionList(sysAdmin.ID)
 	var stringList = make([]string, 0)
-	for _, value := range permissionList{
+	for _, value := range permissionList {
 		stringList = append(stringList, value.Value)
 	}
 	result.Success(c, map[string]interface{}{"token": tokenString, "sysAdmin": sysAdmin, "leftMenuList": leftMenuVo, "permissionList": stringList})

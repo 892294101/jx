@@ -4,7 +4,7 @@
 package middleware
 
 import (
-	"admin-api/pkg/log"
+	"github.com/jx/jxserver/pkg/log"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"

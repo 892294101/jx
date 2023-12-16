@@ -4,9 +4,9 @@
 package dao
 
 import (
-	"admin-api/api/entity"
-	"admin-api/common/util"
-	."admin-api/pkg/db"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/util"
+	. "github.com/jx/jxserver/pkg/db"
 	"time"
 )
 
@@ -125,7 +125,7 @@ func GetSysMenuList(MenuName string, MenuStatus string) (sysMenu []*entity.SysMe
 }
 
 // 当前登录用户左侧菜单级列表
-func QueryMenuVoList(AdminId, MenuId uint) (menuSvo []entity.MenuSvo)  {
+func QueryMenuVoList(AdminId, MenuId uint) (menuSvo []entity.MenuSvo) {
 	const status, menuStatus, menuType = 1, 2, 2
 	Db.Table("sys_menu sm").
 		Select("sm.menu_name, sm.icon, sm.url").
@@ -144,7 +144,7 @@ func QueryMenuVoList(AdminId, MenuId uint) (menuSvo []entity.MenuSvo)  {
 }
 
 // 当前登录用户左侧菜单列表
-func QueryLeftMenuList(Id uint) (leftMenuVo []entity.LeftMenuVo)  {
+func QueryLeftMenuList(Id uint) (leftMenuVo []entity.LeftMenuVo) {
 	const status, menuStatus, menuType uint = 1, 2, 1
 	Db.Table("sys_menu sm").
 		Select("sm.id, sm.menu_name, sm.url, sm.icon").
@@ -162,7 +162,7 @@ func QueryLeftMenuList(Id uint) (leftMenuVo []entity.LeftMenuVo)  {
 }
 
 // 当前登录用户的权限列表
-func QueryPermissionList(Id uint) (valueVo []entity.ValueVo)  {
+func QueryPermissionList(Id uint) (valueVo []entity.ValueVo) {
 	const status, menuStatus, menuType uint = 1, 2, 1
 	Db.Table("sys_menu sm").
 		Select("sm.value").

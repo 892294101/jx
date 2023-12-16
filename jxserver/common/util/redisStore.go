@@ -4,8 +4,8 @@
 package util
 
 import (
-	"admin-api/common/constant"
-	"admin-api/pkg/redis"
+	"github.com/jx/jxserver/common/constant"
+	"github.com/jx/jxserver/pkg/redis"
 	"context"
 	"log"
 	"time"

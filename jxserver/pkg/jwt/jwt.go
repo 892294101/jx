@@ -4,8 +4,8 @@
 package jwt
 
 import (
-	"admin-api/api/entity"
-	"admin-api/common/constant"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/constant"
 	"errors"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"

@@ -4,8 +4,8 @@
 package controller
 
 import (
-	"admin-api/api/entity"
-	"admin-api/api/service"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/api/service"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )

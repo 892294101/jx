@@ -4,8 +4,8 @@
 package dao
 
 import (
-	"admin-api/api/entity"
-	. "admin-api/pkg/db"
+	"github.com/jx/jxserver/api/entity"
+	. "github.com/jx/jxserver/pkg/db"
 )
 
 // 新增操作日志

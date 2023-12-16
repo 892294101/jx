@@ -4,10 +4,10 @@
 package middleware
 
 import (
-	"admin-api/api/dao"
-	"admin-api/api/entity"
-	"admin-api/common/util"
-	"admin-api/pkg/jwt"
+	"github.com/jx/jxserver/api/dao"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/util"
+	"github.com/jx/jxserver/pkg/jwt"
 	"github.com/gin-gonic/gin"
 	"strings"
 	"time"
@@ -19,11 +19,11 @@ func LogMiddleware() gin.HandlerFunc {
 		sysAdmin, _ := jwt.GetAdmin(c)
 		if method != "get" {
 			log := entity.SysOperationLog{
-				AdminId: sysAdmin.ID,
-				Username: sysAdmin.Username,
-				Method: method,
-				Ip: c.ClientIP(),
-				Url: c.Request.URL.Path,
+				AdminId:    sysAdmin.ID,
+				Username:   sysAdmin.Username,
+				Method:     method,
+				Ip:         c.ClientIP(),
+				Url:        c.Request.URL.Path,
 				CreateTime: util.HTime{Time: time.Now()},
 			}
 			dao.CreateSysOperationLog(log)

@@ -4,9 +4,9 @@
 package router
 
 import (
-	"admin-api/api/controller"
-	"admin-api/common/config"
-	"admin-api/middleware"
+	"github.com/jx/jxserver/api/controller"
+	"github.com/jx/jxserver/common/config"
+	"github.com/jx/jxserver/middleware"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"

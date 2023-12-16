@@ -3,7 +3,7 @@
 
 package entity
 
-import "admin-api/common/util"
+import "github.com/jx/jxserver/common/util"
 
 // 角色模型
 type SysRole struct {

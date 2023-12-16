@@ -4,9 +4,9 @@
 package dao
 
 import (
-	"admin-api/api/entity"
-	"admin-api/common/util"
-	."admin-api/pkg/db"
+	"github.com/jx/jxserver/api/entity"
+	"github.com/jx/jxserver/common/util"
+	. "github.com/jx/jxserver/pkg/db"
 	"time"
 )
 

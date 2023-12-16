@@ -4,7 +4,7 @@
 package log
 
 import (
-	"admin-api/common/config"
+	"github.com/jx/jxserver/common/config"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"

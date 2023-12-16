@@ -4,7 +4,7 @@
 package controller
 
 import (
-	"admin-api/common/result"
+	"github.com/jx/jxserver/common/result"
 	"github.com/gin-gonic/gin"
 	"github.com/jx/jxserver/api/service"
 )

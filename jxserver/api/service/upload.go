@@ -4,9 +4,9 @@
 package service
 
 import (
-	"admin-api/common/config"
-	"admin-api/common/result"
-	"admin-api/common/util"
+	"github.com/jx/jxserver/common/config"
+	"github.com/jx/jxserver/common/result"
+	"github.com/jx/jxserver/common/util"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"path"
@@ -37,7 +37,7 @@ func (u UploadServiceImpl) Upload(c *gin.Context) {
 	util.CreateDir(filePath)
 	fullPath := filePath + "/" + fileName
 	c.SaveUploadedFile(file, fullPath)
-	result.Success(c, config.Config.ImageSettings.ImageHost + fullPath)
+	result.Success(c, config.Config.ImageSettings.ImageHost+fullPath)
 }
 
 var uploadService = UploadServiceImpl{}

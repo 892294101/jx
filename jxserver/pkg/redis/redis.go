@@ -4,7 +4,7 @@
 package redis
 
 import (
-	"admin-api/common/config"
+	"github.com/jx/jxserver/common/config"
 	"context"
 	"github.com/go-redis/redis/v8"
 )
