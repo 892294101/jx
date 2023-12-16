@@ -1,4 +1,4 @@
-module jx
+module github.com/jx/jxserver
 
 go 1.17
 

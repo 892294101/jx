@@ -4,9 +4,9 @@
 package controller
 
 import (
-	"github.com/jx/jxserver/common/result"
 	"github.com/gin-gonic/gin"
 	"github.com/jx/jxserver/api/service"
+	"github.com/jx/jxserver/common/result"
 )
 
 // @Summary 验证码接口
