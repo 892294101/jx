@@ -10,9 +10,10 @@ import './assets/css/global.css'
 import api from './api'
 import handleTree from '@/utils/common'
 import AuthorityDirective from '@/permission/index.js'
+import "./css/base.css"
 
 Vue.prototype.$storage = storage
-Vue.prototype.$request = request
+Vue.prototype .$request = request
 Vue.prototype.$store = store
 Vue.prototype.$api= api
 Vue.prototype.$handleTree = handleTree

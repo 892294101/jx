@@ -23,7 +23,7 @@ type SysAdmin struct {
 }
 
 func (SysAdmin) TableName() string {
-	return "sys_admin"
+	return "ss_basicmanage_users"
 }
 
 // 鉴权用户结构体

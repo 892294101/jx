@@ -1,7 +1,7 @@
-<template>
-    <el-row :gutter="20">
-        <el-col :xs="24" :sm="24" :md="8" :lg="6" :xl="5" style="margin-bottom: 10px">
-            <el-card class="box-card">
+<template xmlns="http://www.w3.org/1999/html">
+    <el-row :gutter="20" style="height: 100%; width: 100%;">
+        <el-col :xs="26" :sm="26" :md="10" :lg="8" :xl="7" style="margin-bottom: 10px">
+            <el-card class="box-card" style="height: 80vh" >
                 <div slot="header" class="clearfix">
                     <span>个人信息</span>
                 </div>
@@ -9,7 +9,10 @@
                     <div style="text-align: center">
                         <el-avatar :src="adminDetail.icon"></el-avatar>
                     </div>
-                    <el-form label-width="100px" size="mini">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <el-form label-width="100px" size="mini" >
                         <el-row>
                             <el-col :span="24">
                                 <el-form-item label="用户账号：">{{ adminDetail.username }}</el-form-item>
@@ -34,14 +37,14 @@
                 </div>
             </el-card>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="16" :lg="18" :xl="19">
-            <el-card class="box-card">
+        <el-col :xs="22" :sm="22" :md="14" :lg="16" :xl="17">
+            <el-card class="box-card" style="height: 80vh">
                 <div slot="header" class="clearfix">
                     <span>基本资料</span>
                 </div>
                 <el-tabs v-model="activeName">
                     <el-tab-pane label="基本资料" name="first">
-                        <el-form :model="adminDetail" :rules="editFormRules" ref="editFormRefForm" label-width="80px">
+                        <el-form size="mini" :model="adminDetail" :rules="editFormRules" ref="editFormRefForm" label-width="80px">
                             <el-form-item label="用户头像" prop="icon">
                                 <el-upload :headers=headers class="avatar-uploader" :action="uploadIconUrl"
                                     :show-file-list="false" :on-success="handleAvatarSuccess">
@@ -71,7 +74,7 @@
                         </el-form>
                     </el-tab-pane>
                     <el-tab-pane label="修改密码" name="second">
-                        <el-form :model="updateForm" :rules="updateFormRules" ref="updateFormRefForm" label-width="80px">
+                        <el-form size="mini" :model="updateForm" :rules="updateFormRules" ref="updateFormRefForm" label-width="80px">
                             <el-form-item label="旧密码" prop="password">
                                 <el-input v-model="updateForm.password" placeholder="请输入旧密码" />
                             </el-form-item>

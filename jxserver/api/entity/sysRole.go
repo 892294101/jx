@@ -16,7 +16,7 @@ type SysRole struct {
 }
 
 func (SysRole) TableName() string {
-	return "sys_role"
+	return "ss_basicmanage_roles"
 }
 
 // 新增参数

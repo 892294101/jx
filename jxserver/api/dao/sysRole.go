@@ -67,8 +67,8 @@ func UpdateSysRole(dto entity.UpdateSysRoleDto) (sysRole entity.SysRole) {
 
 // 根据id删除角色
 func DeleteSysRoleById(dto entity.SysRoleIdDto) {
-	Db.Table("sys_role").Delete(&entity.SysRole{}, dto.Id)
-	Db.Table("sys_role_menu").Where("role_id = ?", dto.Id).Delete(&entity.SysRoleMenu{})
+	Db.Table("ss_basicmanage_roles").Delete(&entity.SysRole{}, dto.Id)
+	Db.Table("ss_basicmanage_roles_perms").Where("role_id = ?", dto.Id).Delete(&entity.SysRoleMenu{})
 }
 
 // 角色状态启用/停用
@@ -85,7 +85,7 @@ func UpdateSysRoleStatus(dto entity.UpdateSysRoleStatusDto) bool {
 
 // 分页查询角色列表
 func GetSysRoleList(PageNum, PageSize int, RoleName, status, BeginTime, EndTime string) (sysRole []*entity.SysRole, count int64) {
-	curDb := Db.Table("sys_role")
+	curDb := Db.Table("ss_basicmanage_roles")
 	if RoleName != "" {
 		curDb = curDb.Where("role_name = ?", RoleName)
 	}
@@ -102,17 +102,17 @@ func GetSysRoleList(PageNum, PageSize int, RoleName, status, BeginTime, EndTime 
 
 // 角色下拉列表
 func QuerySysRoleVoList() (sysRoleVo []entity.SysRoleVo) {
-	Db.Table("sys_role").Select("id, role_name").Scan(&sysRoleVo)
+	Db.Table("ss_basicmanage_roles").Select("id, role_name").Scan(&sysRoleVo)
 	return sysRoleVo
 }
 
 // 根据角色的id查询菜单权限数据列表
 func QueryRoleMenuIdList(Id int) (idVo []entity.IdVo) {
 	const menuType int = 3
-	Db.Table("sys_menu sm").
+	Db.Table("ss_basicmanage_menu sm").
 		Select("sm.id").
-		Joins("LEFT JOIN sys_role_menu srm ON srm.menu_id = sm.id").
-		Joins("LEFT JOIN sys_role sr ON sr.id = srm.role_id").
+		Joins("LEFT JOIN ss_basicmanage_roles_perms srm ON srm.menu_id = sm.id").
+		Joins("LEFT JOIN ss_basicmanage_roles sr ON sr.id = srm.role_id").
 		Where("sm.menu_type = ?", menuType).
 		Where("sr.id = ?", Id).
 		Scan(&idVo)
@@ -121,7 +121,7 @@ func QueryRoleMenuIdList(Id int) (idVo []entity.IdVo) {
 
 // 分配权限
 func AssignPermissions(menu entity.RoleMenu) (err error) {
-	err = Db.Table("sys_role_menu").Where("role_id = ?", menu.Id).Delete(&entity.SysRoleMenu{}).Error
+	err = Db.Table("ss_basicmanage_roles_perms").Where("role_id = ?", menu.Id).Delete(&entity.SysRoleMenu{}).Error
 	if err != nil {
 		return err
 	}

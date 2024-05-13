@@ -4,6 +4,6 @@
 package constant
 
 const (
-	ContextKeyUserObj ="authedUserObj"
-	LOGIN_CODE = "login_code:"
+	ContextKeyUserObj = "AuthedUserObject"
+	LOGIN_CODE        = "LoginCode:"
 )

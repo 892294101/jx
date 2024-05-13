@@ -17,7 +17,7 @@ type SysOperationLog struct {
 }
 
 func (SysOperationLog) TableName() string {
-	return "sys_operation_log"
+	return "ss_logmanage_oper_logs"
 }
 
 // Id参数

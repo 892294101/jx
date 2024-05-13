@@ -11,8 +11,8 @@ module.exports = defineConfig({
   outputDir:'dist',
   assetsDir:'assets',
   devServer: {
-    port: 2003,
-    host: '0.0.0.0',
+    port: 8081,
+    host: "0.0.0.0",
     https: false,
     open: false,
     proxy: {

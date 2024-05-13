@@ -4,6 +4,7 @@
 package dao
 
 import (
+	"fmt"
 	"github.com/jx/jxserver/api/entity"
 	"github.com/jx/jxserver/common/util"
 	. "github.com/jx/jxserver/pkg/db"
@@ -12,7 +13,7 @@ import (
 
 // 查询部门列表
 func GetSysDeptList(DeptName string, DeptStatus string) (sysDept []entity.SysDept) {
-	curDb := Db.Table("sys_dept")
+	curDb := Db.Table("ss_basicmanage_depart")
 	if DeptName != "" {
 		curDb = curDb.Where("dept_name = ?", DeptName)
 	}
@@ -95,8 +96,7 @@ func DeleteSysDeptById(dto entity.SysDeptIdDto) bool {
 
 // 部门下拉列表
 func QuerySysDeptVoList() (sysDeptVo []entity.SysDeptVo) {
-	Db.Table("sys_dept").Select("id, dept_name AS label, parent_id").Scan(&sysDeptVo)
+	Db.Table("ss_basicmanage_depart").Select("id, dept_name AS label, parent_id").Scan(&sysDeptVo)
+	fmt.Println("sysDeptVo", sysDeptVo)
 	return sysDeptVo
 }
-
-

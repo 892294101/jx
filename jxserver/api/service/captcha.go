@@ -6,7 +6,6 @@ package service
 import (
 	"github.com/jx/jxserver/common/util"
 	"github.com/mojocn/base64Captcha"
-	"image/color"
 )
 
 var store = util.RedisStore{}
@@ -17,18 +16,14 @@ func CaptMake() (id, b64s string) {
 	var driverString base64Captcha.DriverString
 	// 配置验证码信息
 	captchaConfig := base64Captcha.DriverString{
-		Height:          60,
+		Height:          50,
 		Width:           200,
 		NoiseCount:      0,
 		ShowLineOptions: 2 | 4,
-		Length:          6,
+		Length:          4,
 		Source:          "1234567890qwertyuioplkjhgfdsazxcvbnm",
-		BgColor: &color.RGBA{
-			R: 3,
-			G: 102,
-			B: 214,
-			A: 125,
-		},
+		//BgColor:         &color.RGBA{R: 3, G: 102, B: 214, A: 125},
+
 		Fonts: []string{"wqy-microhei.ttc"},
 	}
 	driverString = captchaConfig

@@ -19,7 +19,7 @@ type SysLoginInfo struct {
 }
 
 func (SysLoginInfo) TableName() string {
-	return "sys_login_info"
+	return "ss_logmanage_login_logs"
 }
 
 // Id参数

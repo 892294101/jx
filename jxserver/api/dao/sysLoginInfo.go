@@ -27,7 +27,7 @@ func CreateSysLoginInfo(username, ipAddress, loginLocation, browser, os, message
 
 // 分页获取登录日志列表
 func GetSysLoginInfoList(Username, LoginStatus, BeginTime, EndTime string, PageSize, PageNum int) (sysLoginInfo []entity.SysLoginInfo, count int64) {
-	curDb := Db.Table("sys_login_info")
+	curDb := Db.Table("ss_logmanage_login_logs")
 	if Username != "" {
 		curDb = curDb.Where("username = ?", Username)
 	}
@@ -54,5 +54,5 @@ func DeleteSysLoginInfoById(dto entity.SysLoginInfoIdDto) {
 
 // 清空登录日志
 func CleanSysLoginInfo() {
-	Db.Exec("truncate table sys_login_Info")
+	Db.Exec("truncate table ss_logmanage_login_logs")
 }

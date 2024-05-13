@@ -4,9 +4,9 @@
 package controller
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/jx/jxserver/api/entity"
 	"github.com/jx/jxserver/api/service"
-	"github.com/gin-gonic/gin"
 	"strconv"
 )
 
@@ -77,7 +77,8 @@ func DeleteSysAdminById(c *gin.Context) {
 	service.SysAdminService().DeleteSysAdminById(c, dto)
 }
 
-//  用户状态启用/停用
+//	用户状态启用/停用
+//
 // @Summary 用户状态启用/停用接口
 // @Produce json
 // @Description 用户状态启用/停用接口

@@ -19,7 +19,7 @@ type SysMenu struct {
 }
 
 func (SysMenu) TableName() string {
-	return "sys_menu"
+	return "ss_basicmanage_menu"
 }
 
 // SysMenuVo 对象
@@ -41,8 +41,8 @@ type MenuSvo struct {
 	Url      string `json:"url"`      // url
 }
 
-// 左侧菜单vo
-type LeftMenuVo struct {
+// LeftParentMenuVo 左侧Parent菜单vo
+type LeftParentMenuVo struct {
 	Id          uint      `json:"id"`          // ID
 	MenuName    string    `json:"menuName"`    // 菜单名称
 	Icon        string    `json:"icon"`        // 图标
@@ -50,7 +50,15 @@ type LeftMenuVo struct {
 	MenuSvoList []MenuSvo `json:"menuSvoList"` // 菜单列表
 }
 
-// 权限vo
+// LeftMenuVo 左侧child菜单vo
+type LeftMenuVo struct {
+	Id       uint   `json:"id"`       // ID
+	MenuName string `json:"menuName"` // 菜单名称
+	Icon     string `json:"icon"`     // 图标
+	Url      string `json:"url"`      // url
+}
+
+// ValueVo 权限vo
 type ValueVo struct {
 	Value string `json:"value"` // 权限
 }

@@ -9,11 +9,11 @@ server:
 # 数据库配置
 db:
   dialects: mysql
-  host: 127.0.0.1
+  host: 10.130.41.246
   port: 3306
-  db: admin-go-api
+  db: jx
   username: root
-  password: root
+  password: Admin!@123
   charset: utf8
   # 最大空闲数
   maxIdle: 50
@@ -22,21 +22,21 @@ db:
 
 # redis配置
 redis:
-  address: 127.0.0.1:6379
-  password: 123456
+  address: 10.130.41.7:3900
+  password: zxJZt7PidfT
 
 # 图片地址和ip
 imageSettings:
   # 本地磁盘地址
-  uploadDir: /admin-go-api/upload/
+  uploadDir: /tmp/upload/
   # 本地ip地址
   imageHost: http://localhost:2002
 
 # log日志配置
 log:
-  path: ./log
+  path: /tmp
   name: sys
   # 输出到控制台
-  model: console
+  model: file
   # 输出到文件
   # model: file

@@ -48,7 +48,7 @@ func CreateSysPost(sysPost entity.SysPost) bool {
 
 // 分页查询岗位列表
 func GetSysPostList(PageNum, PageSize int, PostName, PostStatus, BeginTime, EndTime string) (sysPost []entity.SysPost, count int64) {
-	curDb := Db.Table("sys_post")
+	curDb := Db.Table("ss_basicmanage_post")
 	if PostName != "" {
 		curDb = curDb.Where("post_name = ?", PostName)
 	}
@@ -102,6 +102,6 @@ func UpdateSysPostStatus(dto entity.UpdateSysPostStatusDto) {
 
 // 岗位下拉列表
 func QuerySysPostVoList() (sysPostVo []entity.SysPostVo) {
-	Db.Table("sys_post").Select("id, post_name").Scan(&sysPostVo)
+	Db.Table("ss_basicmanage_post").Select("id, post_name").Scan(&sysPostVo)
 	return sysPostVo
 }

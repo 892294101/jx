@@ -1,7 +1,7 @@
 <template>
     <div class="tags">
         <el-tag class="tag" size="medium" closable :effect="item.title == $route.meta.tTitle ? 'dark' : 'plain'"
-            v-for="item, index in tags" :key="item.path" @click="goTo(item.path)" @close="close(index)"
+            v-for="(item, index) in tags" :key="item.path" @click="goTo(item.path)" @close="close(index)"
             :closable="index > 0" :disable-transitions="true">
             <i class="circular" v-show="item.title == $route.meta.tTitle"></i>
             {{ item.title }}</el-tag>
@@ -15,7 +15,7 @@ export default {
         return {
             tags: [{
                 title: "首页",
-                path: "/welcome"
+                path: "/index"
             }]
         }
     },

@@ -1,8 +1,8 @@
 /**
  * axios统一封装
- * 
+ *
  * @author xiaoRui
- * 
+ *
 */
 
 import { Message } from "element-ui"
@@ -13,7 +13,7 @@ import storage from "./storage"
 // 创建axios对象，添加全局配置
 const service = axios.create({
     baseURL: process.env.VUE_APP_BASE_API,
-    timeout: 8000
+    timeout: 8000,
 })
 
 // 请求拦截

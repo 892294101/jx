@@ -4,14 +4,14 @@
 package main
 
 import (
+	"context"
+	"github.com/gin-gonic/gin"
 	"github.com/jx/jxserver/common/config"
 	_ "github.com/jx/jxserver/docs"
 	"github.com/jx/jxserver/pkg/db"
 	"github.com/jx/jxserver/pkg/log"
 	"github.com/jx/jxserver/pkg/redis"
 	"github.com/jx/jxserver/router"
-	"context"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
 	"os/signal"

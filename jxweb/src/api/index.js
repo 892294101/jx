@@ -270,7 +270,7 @@ export default {
     // admin用户
     queryAdminList(params) {
         return request({
-            url: "/admin/list",
+            url: "/admin/users",
             method: 'get',
             data: params
         })

@@ -55,10 +55,10 @@ func CreateSysAdmin(dto entity.AddSysAdminDto) bool {
 
 // 根据id查询用户详情
 func GetSysAdminInfo(Id int) (sysAdminInfo entity.SysAdminInfo) {
-	Db.Table("sys_admin").
-		Select("sys_admin.*, sys_admin_role.role_id").
-		Joins("LEFT JOIN sys_admin_role ON sys_admin.id = sys_admin_role.admin_id").
-		Joins("LEFT JOIN sys_role ON sys_Admin_role.role_id = sys_role.id").
+	Db.Table("ss_basicmanage_users").
+		Select("ss_basicmanage_users.*, ss_basicmanage_users_role.role_id").
+		Joins("LEFT JOIN ss_basicmanage_users_role ON ss_basicmanage_users.id = ss_basicmanage_users_role.admin_id").
+		Joins("LEFT JOIN ss_basicmanage_roles ON ss_basicmanage_users_role.role_id = ss_basicmanage_roles.id").
 		First(&sysAdminInfo, Id)
 	return sysAdminInfo
 }
@@ -119,23 +119,23 @@ func ResetSysAdminPassword(dto entity.ResetSysAdminPasswordDto) {
 
 // 分页查询用户列表
 func GetSysAdminList(PageSize, PageNum int, Username, Status, BeginTime, EndTime string) (sysAdminVo []entity.SysAdminVo, count int64) {
-	curDb := Db.Table("sys_admin").
-		Select("sys_admin.*, sys_post.post_name, sys_role.role_name, sys_dept.dept_name").
-		Joins("LEFT JOIN sys_post ON sys_admin.post_id = sys_post.id").
-		Joins("LEFT JOIN sys_admin_role ON sys_admin.id = sys_admin_role.admin_id").
-		Joins("LEFT JOIN sys_role ON sys_role.id = sys_admin_role.role_id").
-		Joins("LEFT JOIN sys_dept ON sys_dept.id = sys_admin.dept_id")
+	curDb := Db.Table("ss_basicmanage_users").
+		Select("ss_basicmanage_users.*, ss_basicmanage_post.post_name, ss_basicmanage_roles.role_name, ss_basicmanage_depart.dept_name").
+		Joins("LEFT JOIN ss_basicmanage_post ON ss_basicmanage_users.post_id = ss_basicmanage_post.id").
+		Joins("LEFT JOIN ss_basicmanage_users_role ON ss_basicmanage_users.id = ss_basicmanage_users_role.admin_id").
+		Joins("LEFT JOIN ss_basicmanage_roles ON ss_basicmanage_roles.id = ss_basicmanage_users_role.role_id").
+		Joins("LEFT JOIN ss_basicmanage_depart ON ss_basicmanage_depart.id = ss_basicmanage_users.dept_id")
 	if Username != "" {
-		curDb = curDb.Where("sys_admin.username = ?", Username)
+		curDb = curDb.Where("ss_basicmanage_users.username = ?", Username)
 	}
 	if Status != "" {
-		curDb = curDb.Where("sys_admin.status = ?", Status)
+		curDb = curDb.Where("ss_basicmanage_users.status = ?", Status)
 	}
 	if BeginTime != "" && EndTime != "" {
-		curDb = curDb.Where("sys_admin.create_time BETWEEN ? AND ?", BeginTime, EndTime)
+		curDb = curDb.Where("ss_basicmanage_users.create_time BETWEEN ? AND ?", BeginTime, EndTime)
 	}
 	curDb.Count(&count)
-	curDb.Limit(PageSize).Offset((PageNum - 1) * PageSize).Order("sys_admin.create_time DESC").Find(&sysAdminVo)
+	curDb.Limit(PageSize).Offset((PageNum - 1) * PageSize).Order("ss_basicmanage_users.create_time DESC").Find(&sysAdminVo)
 	return sysAdminVo, count
 }
 

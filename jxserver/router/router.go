@@ -4,10 +4,10 @@
 package router
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/jx/jxserver/api/controller"
 	"github.com/jx/jxserver/common/config"
 	"github.com/jx/jxserver/middleware"
-	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
@@ -68,7 +68,7 @@ func register(router *gin.Engine) {
 		jwt.DELETE("/admin/delete", controller.DeleteSysAdminById)
 		jwt.PUT("/admin/updateStatus", controller.UpdateSysAdminStatus)
 		jwt.PUT("/admin/updatePassword", controller.ResetSysAdminPassword)
-		jwt.GET("/admin/list", controller.GetSysAdminList)
+		jwt.GET("/admin/users", controller.GetSysAdminList)
 		jwt.POST("/upload", controller.Upload)
 		jwt.PUT("/admin/updatePersonal", controller.UpdatePersonal)
 		jwt.PUT("/admin/updatePersonalPassword", controller.UpdatePersonalPassword)

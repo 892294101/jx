@@ -15,7 +15,7 @@ func CreateSysOperationLog(log entity.SysOperationLog) {
 
 // 分页查询操作日志列表
 func GetSysOperationLogList(Username, BeginTime, EndTime string, PageSize, PageNum int) (sysOperationLog []entity.SysOperationLog, count int64) {
-	curDb := Db.Table("sys_operation_log")
+	curDb := Db.Table("ss_logmanage_oper_logs")
 	if Username != "" {
 		curDb = curDb.Where("username =?", Username)
 	}
@@ -39,5 +39,5 @@ func BatchDeleteSysOperationLog(dto entity.BatchDeleteSysOperationLogDto) {
 
 // 清空操作日志
 func CleanSysOperationLog() {
-	Db.Exec("truncate table sys_operation_log")
+	Db.Exec("truncate table ss_logmanage_oper_logs")
 }

@@ -10,5 +10,5 @@ type SysRoleMenu struct {
 }
 
 func (SysRoleMenu) TableName() string {
-	return "sys_role_menu"
+	return "ss_basicmanage_roles_perms"
 }

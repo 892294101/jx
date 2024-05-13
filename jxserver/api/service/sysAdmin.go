@@ -4,13 +4,13 @@
 package service
 
 import (
+	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 	"github.com/jx/jxserver/api/dao"
 	"github.com/jx/jxserver/api/entity"
 	"github.com/jx/jxserver/common/result"
 	"github.com/jx/jxserver/common/util"
 	"github.com/jx/jxserver/pkg/jwt"
-	"github.com/gin-gonic/gin"
-	"github.com/go-playground/validator/v10"
 )
 
 // 定义接口
@@ -162,12 +162,15 @@ func (s SysAdminServiceImpl) Login(c *gin.Context, dto entity.LoginDto) {
 	// 生成token
 	tokenString, _ := jwt.GenerateTokenByAdmin(sysAdmin)
 	dao.CreateSysLoginInfo(dto.Username, ip, util.GetRealAddressByIP(ip), util.GetBrowser(c), util.GetOs(c), "登录成功", 1)
-	// 左侧菜单列表
-	var leftMenuVo []entity.LeftMenuVo
+	// 左侧parent菜单列表
+	var leftMenuVo []entity.LeftParentMenuVo
+	// 先查询主菜单列表
 	leftMenuList := dao.QueryLeftMenuList(sysAdmin.ID)
 	for _, value := range leftMenuList {
+		// 获取每个主菜单下对子菜单
 		menuSvoList := dao.QueryMenuVoList(sysAdmin.ID, value.Id)
-		item := entity.LeftMenuVo{}
+
+		item := entity.LeftParentMenuVo{}
 		item.MenuSvoList = menuSvoList
 		item.Id = value.Id
 		item.MenuName = value.MenuName

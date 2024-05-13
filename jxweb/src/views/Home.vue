@@ -2,8 +2,8 @@
     <el-container class="home-container">
         <el-aside :width="isCollapse ? '64px' : '200px'">
             <div class="logo">
-                <img src="../assets/image/logo.jpg" class="siderbar-logo">
-                <h3 v-show="!isCollapse">通用后台管理系统</h3>
+                <img src="../assets/image/logo.png" class="siderbar-logo">
+                <h3 v-show="!isCollapse">松鼠后台管理系统</h3>
             </div>
             <el-menu background-color="#304156" text-color="#fff" unique-opened router :default-active="$route.path"
                 :collapse="isCollapse" :collapse-transition="false">
@@ -37,13 +37,13 @@
                     <i :class="collapseBtnClass" @click="toggleCollapse"></i>
                 </div>
                 <div class="bread-btn">
-                    <el-breadcrumb separator="/" v-if="$router.currentRoute.path != '/welcome'">
-                        <el-breadcrumb-item :to="{ path: '/welcome' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb separator="/" v-if="$router.currentRoute.path != '/index'">
+                        <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
                         <el-breadcrumb-item>{{ $route.meta.sTitle }}</el-breadcrumb-item>
                         <el-breadcrumb-item>{{ $route.meta.tTitle }}</el-breadcrumb-item>
                     </el-breadcrumb>
                     <el-breadcrumb separator="/" v-else>
-                        <el-breadcrumb-item :to="{ path: '/welcome' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
                     </el-breadcrumb>
                 </div>
                 <HeadImage />
